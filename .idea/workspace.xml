@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6bc3492-caeb-45c4-8052-992ce7d16f32" name="Changes" comment="1">
+    <list default="true" id="f6bc3492-caeb-45c4-8052-992ce7d16f32" name="Changes" comment="Установка Fixtures Bundle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +222,7 @@
       <updated>1685095370758</updated>
       <workItem from="1685095371903" duration="671000" />
       <workItem from="1685096052454" duration="1520000" />
-      <workItem from="1685097582305" duration="5039000" />
+      <workItem from="1685097582305" duration="5524000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1685096172855</created>
@@ -266,7 +266,28 @@
       <option name="project" value="LOCAL" />
       <updated>1685101946074</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Entities">
+      <created>1685102866438</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685102866438</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Миграция БД">
+      <created>1685102897122</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685102897122</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Установка Fixtures Bundle">
+      <created>1685102929061</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685102929061</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +306,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="Entities" />
+    <MESSAGE value="Миграция БД" />
+    <MESSAGE value="Установка Fixtures Bundle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Установка Fixtures Bundle" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
