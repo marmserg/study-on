@@ -31,10 +31,11 @@ class LessonController extends AbstractController
      * @Route("/new", name="app_lesson_new", methods={"GET", "POST"})
      */
     public function new(
-        Request $request,
-        LessonRepository $lessonRepository,
+        Request                $request,
+        LessonRepository       $lessonRepository,
         EntityManagerInterface $entityManager
-    ): Response {
+    ): Response
+    {
 
         // Берем $courseId из URL
         $courseId = $request->query->get('course_id');
@@ -45,17 +46,15 @@ class LessonController extends AbstractController
         $form = $this->createForm(LessonType::class, $lesson);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             // Берем $courseId из формы
             $courseId = $form->get('course_id')->getData();
             $course = $entityManager->getRepository(Course::class)->find($courseId);
             $lesson->setCourse($course);
 
-            if ($form->isValid()) {
-                $lessonRepository->add($lesson, true);
+            $lessonRepository->add($lesson, true);
 
-                return $this->redirectToRoute('app_course_show', ['id' => $courseId], Response::HTTP_SEE_OTHER);
-            }
+            return $this->redirectToRoute('app_course_show', ['id' => $courseId], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('lesson/new.html.twig', [
