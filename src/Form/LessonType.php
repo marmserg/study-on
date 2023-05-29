@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Lesson;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,9 +15,9 @@ class LessonType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('content')
+            ->add('content', TextareaType::class)
             ->add('sort')
-            ->add('course')
+            ->add('course_id', HiddenType::class, ['mapped' => false])
         ;
     }
 

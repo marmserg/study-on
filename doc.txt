@@ -11,3 +11,8 @@ sudo chmod -R 777 study-on.billing
 sudo chown -R mss:mss study-on.billing
 ls -lp
 cd study-on.billing
+
+
+
+sudo chmod -R 777 .composer
+sudo chown -R mss:mss .composer

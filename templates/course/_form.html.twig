@@ -1,4 +1,17 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{#    {{ form_widget(form) }}#}
+
+    <div class="form-rows">
+        <div class="form-row">
+            {{ form_row(form.name, {'label': 'Наименование'}) }}
+        </div>
+        <div class="form-row">
+            {{ form_row(form.code, {'label': 'Символьный код'}) }}
+        </div>
+        <div class="form-row">
+            {{ form_row(form.description, {'label': 'Описание'}) }}
+        </div>
+    </div>
+
+    <button class="btn">{{ button_label|default('Сохранить') }}</button>
 {{ form_end(form) }}

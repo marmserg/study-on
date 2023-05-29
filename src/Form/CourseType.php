@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Course;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,7 @@ class CourseType extends AbstractType
         $builder
             ->add('code')
             ->add('name')
-            ->add('description')
+            ->add('description', TextareaType::class)
         ;
     }
 

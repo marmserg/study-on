@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Lesson{% endblock %}
+{% block title %}Создать урок / Study-on{% endblock %}
 
 {% block body %}
-    <h1>Create new Lesson</h1>
+    <h1>Создать урок</h1>
 
-    {{ include('lesson/_form.html.twig') }}
+    {{ include('lesson/_form.html.twig', {'course': courseId}) }}
 
-    <a href="{{ path('app_lesson_index') }}">back to list</a>
+    <hr>
+
+    <a class="btn" href="{{ path('app_course_show', {'id': courseId}) }}">Назад к курсу</a>
 {% endblock %}
