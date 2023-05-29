@@ -38,11 +38,6 @@ class Lesson
      */
     private $sort;
 
-    public function __construct(Course $course)
-    {
-        $this->setCourse($course);
-    }
-
     public function getId(): ?int
     {
         return $this->id;

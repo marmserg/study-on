@@ -36,17 +36,26 @@ class LessonController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
 
+        // Берем $courseId из URL
         $courseId = $request->query->get('course_id');
         $course = $entityManager->getRepository(Course::class)->find($courseId);
-        $lesson = new Lesson($course);
+        $lesson = new Lesson();
+        $lesson->setCourse($course);
 
         $form = $this->createForm(LessonType::class, $lesson);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $lessonRepository->add($lesson, true);
+        if ($form->isSubmitted()) {
+            // Берем $courseId из формы
+            $courseId = $form->get('course_id')->getData();
+            $course = $entityManager->getRepository(Course::class)->find($courseId);
+            $lesson->setCourse($course);
 
-            return $this->redirectToRoute('app_course_show', ['id' => $courseId], Response::HTTP_SEE_OTHER);
+            if ($form->isValid()) {
+                $lessonRepository->add($lesson, true);
+
+                return $this->redirectToRoute('app_course_show', ['id' => $courseId], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->renderForm('lesson/new.html.twig', [

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Редактировать урок - {{ lesson.name }} </h1>
 
-    {{ include('lesson/_form.html.twig') }}
+    {{ include('lesson/_form.html.twig', {'courseId': lesson.course.id}) }}
 
     <hr>
 
