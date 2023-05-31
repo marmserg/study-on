@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\LessonRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=LessonRepository::class)
@@ -25,16 +26,30 @@ class Lesson
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "Введите Наименование"
+     * )
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Наименование должно быть не более 255 символов."
+     * )
      */
     private $name;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(
+     *     message = "Введите содержимое урока"
+     * )
      */
     private $content;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Assert\LessThan(
+     *     value = 10000,
+     *     message = "Порядок сортировки должен быть меньше 10000"
+     * )
      */
     private $sort;
 
@@ -60,7 +75,7 @@ class Lesson
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
