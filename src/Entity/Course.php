@@ -6,9 +6,15 @@ use App\Repository\CourseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
  * @ORM\Entity(repositoryClass=CourseRepository::class)
+ * @DoctrineAssert\UniqueEntity(
+ *     fields = "code",
+ *     message = "Такой символьный код уже существует."
+ * )
  */
 class Course
 {
@@ -21,16 +27,34 @@ class Course
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank(
+     *     message = "Введите символьный код"
+     * )
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Символьный код должен быть не более 255 символов."
+     * )
      */
     private $code;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "Введите наименование"
+     * )
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Наименование должно быть не более 255 символов."
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
+     * @Assert\Length(
+     *     max = 1000,
+     *     maxMessage = "Описание должно быть не более 1000 символов."
+     * )
      */
     private $description;
 
@@ -54,7 +78,7 @@ class Course
         return $this->code;
     }
 
-    public function setCode(string $code): self
+    public function setCode(?string $code): self
     {
         $this->code = $code;
 
@@ -66,7 +90,7 @@ class Course
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
