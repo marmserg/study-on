@@ -60,6 +60,7 @@ class Course
 
     /**
      * @ORM\OneToMany(targetEntity=Lesson::class, mappedBy="course")
+     * @ORM\OrderBy({"sort" = "ASC"})
      */
     private $lessons;
 
