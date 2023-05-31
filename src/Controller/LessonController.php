@@ -31,11 +31,10 @@ class LessonController extends AbstractController
      * @Route("/new", name="app_lesson_new", methods={"GET", "POST"})
      */
     public function new(
-        Request                $request,
-        LessonRepository       $lessonRepository,
+        Request $request,
+        LessonRepository $lessonRepository,
         EntityManagerInterface $entityManager
-    ): Response
-    {
+    ): Response {
 
         // Берем $courseId из URL
         $courseId = $request->query->get('course_id');
