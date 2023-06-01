@@ -3,13 +3,25 @@
 
     <div class="form-rows">
         <div class="form-row">
-            {{ form_row(form.name) }}
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            <div class="errors">
+                {{ form_errors(form.name) }}
+            </div>
         </div>
         <div class="form-row">
-            {{ form_row(form.content) }}
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content) }}
+            <div class="errors">
+                {{ form_errors(form.content) }}
+            </div>
         </div>
         <div class="form-row">
-            {{ form_row(form.sort) }}
+            {{ form_label(form.sort) }}
+            {{ form_widget(form.sort) }}
+            <div class="errors">
+                {{ form_errors(form.sort) }}
+            </div>
         </div>
     </div>
 

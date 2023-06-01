@@ -1,15 +1,26 @@
 {{ form_start(form) }}
-{#    {{ form_widget(form) }}#}
 
     <div class="form-rows">
         <div class="form-row">
-            {{ form_row(form.name) }}
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            <div class="errors">
+                {{ form_errors(form.name) }}
+            </div>
         </div>
         <div class="form-row">
-            {{ form_row(form.code) }}
+            {{ form_label(form.code) }}
+            {{ form_widget(form.code) }}
+            <div class="errors">
+                {{ form_errors(form.code) }}
+            </div>
         </div>
         <div class="form-row">
-            {{ form_row(form.description) }}
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            <div class="errors">
+                {{ form_errors(form.description) }}
+            </div>
         </div>
     </div>
 

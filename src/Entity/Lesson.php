@@ -27,11 +27,11 @@ class Lesson
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(
-     *     message = "Введите Наименование"
+     *     message = "Введите наименование"
      * )
      * @Assert\Length(
      *     max = 255,
-     *     maxMessage = "Наименование должно быть не более 255 символов."
+     *     maxMessage = "Наименование должно быть не более 255 символов"
      * )
      */
     private $name;

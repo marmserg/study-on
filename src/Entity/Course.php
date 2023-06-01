@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
  * @ORM\Entity(repositoryClass=CourseRepository::class)
  * @DoctrineAssert\UniqueEntity(
  *     fields = "code",
- *     message = "Такой символьный код уже существует."
+ *     message = "Такой символьный код уже существует"
  * )
  */
 class Course
@@ -32,7 +32,7 @@ class Course
      * )
      * @Assert\Length(
      *     max = 255,
-     *     maxMessage = "Символьный код должен быть не более 255 символов."
+     *     maxMessage = "Символьный код должен быть не более 255 символов"
      * )
      */
     private $code;
@@ -44,7 +44,7 @@ class Course
      * )
      * @Assert\Length(
      *     max = 255,
-     *     maxMessage = "Наименование должно быть не более 255 символов."
+     *     maxMessage = "Наименование должно быть не более 255 символов"
      * )
      */
     private $name;
@@ -53,7 +53,7 @@ class Course
      * @ORM\Column(type="string", length=1000, nullable=true)
      * @Assert\Length(
      *     max = 1000,
-     *     maxMessage = "Описание должно быть не более 1000 символов."
+     *     maxMessage = "Описание должно быть не более 1000 символов"
      * )
      */
     private $description;

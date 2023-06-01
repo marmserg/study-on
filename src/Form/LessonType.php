@@ -26,7 +26,7 @@ class LessonType extends AbstractType
             ->add('sort', FormTypes\NumberType::class, [
                 'label' => 'Порядок сортировки',
                 'required' => false,
-                'invalid_message' => 'Порядок сортировки должен быть числом.'
+                'invalid_message' => 'Порядок сортировки должен быть числом'
             ])
             ->add('course', FormTypes\HiddenType::class)
         ;
