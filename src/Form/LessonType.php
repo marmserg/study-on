@@ -23,7 +23,11 @@ class LessonType extends AbstractType
         $builder
             ->add('name', FormTypes\TextType::class, ['label' => 'Наименование', 'required' => false])
             ->add('content', FormTypes\TextareaType::class, ['label' => 'Содержимое урока', 'required' => false])
-            ->add('sort', FormTypes\NumberType::class, ['label' => 'Порядок сортировки', 'required' => false])
+            ->add('sort', FormTypes\NumberType::class, [
+                'label' => 'Порядок сортировки',
+                'required' => false,
+                'invalid_message' => 'Порядок сортировки должен быть числом.'
+            ])
             ->add('course', FormTypes\HiddenType::class)
         ;
 
