@@ -46,14 +46,13 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Берем $courseId из формы
-            $courseId = $form->get('course_id')->getData();
-            $course = $entityManager->getRepository(Course::class)->find($courseId);
-            $lesson->setCourse($course);
-
             $lessonRepository->add($lesson, true);
 
-            return $this->redirectToRoute('app_course_show', ['id' => $courseId], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute(
+                'app_course_show',
+                ['id' => $lesson->getCourse()->getId()],
+                Response::HTTP_SEE_OTHER
+            );
         }
 
         return $this->renderForm('lesson/new.html.twig', [
@@ -82,16 +81,18 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Берем $courseId из формы
-            $courseId = $form->get('course_id')->getData();
             $lessonRepository->add($lesson, true);
 
-            return $this->redirectToRoute('app_course_show', ['id' => $courseId], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute(
+                'app_course_show',
+                ['id' => $lesson->getCourse()->getId()],
+                Response::HTTP_SEE_OTHER
+            );
         }
 
         return $this->renderForm('lesson/edit.html.twig', [
             'lesson' => $lesson,
-            'form' => $form,
+            'form' => $form
         ]);
     }
 
