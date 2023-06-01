@@ -8,7 +8,11 @@
 
     {% for course in courses %}
         <h3><a href="{{ path('app_course_show', {'id': course.id}) }}">{{ course.name }}</a></h3>
-        <p>{{ course.description }}</p>
+
+        {% if course.description %}
+            <p>{{ course.description }}</p>
+        {% endif %}
+
         <hr>
     {% else %}
         <p>Пока нет ни одного курса. Надо бы добавить ;)</p>
