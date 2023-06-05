@@ -3,11 +3,15 @@
 {% block title %}Создать курс / Study-on{% endblock %}
 
 {% block body %}
-    <h1>Создать курс</h1>
+    <h1 class="m-3">Создать курс</h1>
 
-    {{ include('course/_form.html.twig') }}
+    <div class="form-wrapper p-3">
+        {{ include('course/_form.html.twig') }}
+    </div>
 
     <hr>
 
-    <a class="btn" href="{{ path('app_course_index') }}">Назад к списку курсов</a>
+    <div class="buttons px-3 mb-3">
+        <a class="btn btn-primary" href="{{ path('app_course_index') }}">Назад к списку курсов</a>
+    </div>
 {% endblock %}

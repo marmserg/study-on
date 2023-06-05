@@ -1,21 +1,21 @@
 {{ form_start(form) }}
 
     <div class="form-rows">
-        <div class="form-row">
+        <div class="form-row mb-3">
             {{ form_label(form.name) }}
             {{ form_widget(form.name) }}
             <div class="errors">
                 {{ form_errors(form.name) }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row mb-3">
             {{ form_label(form.code) }}
             {{ form_widget(form.code) }}
             <div class="errors">
                 {{ form_errors(form.code) }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row mb-3">
             {{ form_label(form.description) }}
             {{ form_widget(form.description) }}
             <div class="errors">
@@ -24,5 +24,5 @@
         </div>
     </div>
 
-    <button class="btn">{{ button_label|default('Сохранить') }}</button>
+    <button class="btn btn-success">{{ button_label|default('Сохранить') }}</button>
 {{ form_end(form) }}

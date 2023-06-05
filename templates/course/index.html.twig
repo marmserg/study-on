@@ -4,20 +4,31 @@
 
 {% block body %}
 
-    <h1>Курсы</h1>
+    <h1 class="m-3">Курсы</h1>
 
-    {% for course in courses %}
-        <h3><a href="{{ path('app_course_show', {'id': course.id}) }}">{{ course.name }}</a></h3>
+    <div class="courses d-flex flex-wrap justify-content-between">
+        {% for course in courses %}
+            <div class="course-wrap col-6">
+                <div class="course m-3 p-3 border border-2 rounded">
+                    <h3>{{ course.name }}</h3>
 
-        {% if course.description %}
-            <p>{{ course.description }}</p>
-        {% endif %}
+                    {% if course.description %}
+                        <p>{{ course.description }}</p>
+                    {% endif %}
 
-        <hr>
-    {% else %}
-        <p>Пока нет ни одного курса. Надо бы добавить ;)</p>
-    {% endfor %}
+                    <a class="btn btn-outline-primary" href="{{ path('app_course_show', {'id': course.id}) }}">Пройти</a>
+                </div>
+            </div>
 
-    <a class="btn" href="{{ path('app_course_new') }}">Добавить курс</a>
+        {% else %}
+            <p>Пока нет ни одного курса. Надо бы добавить ;)</p>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="buttons px-3 mb-3">
+        <a class="btn btn-primary" href="{{ path('app_course_new') }}">Добавить курс</a>
+    </div>
 
 {% endblock %}

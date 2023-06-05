@@ -3,12 +3,16 @@
 {% block title %}Редактировать урок - {{ lesson.name }} / {{ lesson.course.name }} / Study-on{% endblock %}
 
 {% block body %}
-    <h1>Редактировать урок - {{ lesson.name }} </h1>
+    <h1 class="m-3">Редактировать урок - {{ lesson.name }} </h1>
 
-    {{ include('lesson/_form.html.twig', {'courseId': lesson.course.id}) }}
+    <div class="form-wrapper p-3">
+        {{ include('lesson/_form.html.twig', {'courseId': lesson.course.id}) }}
+    </div>
 
     <hr>
 
-    <a class="btn" href="{{ path('app_course_show', {'id': lesson.course.id}) }}">Назад к курсу</a>
-    {{ include('lesson/_delete_form.html.twig') }}
+    <div class="buttons px-3 mb-3">
+        <a class="btn btn-primary me-2" href="{{ path('app_course_show', {'id': lesson.course.id}) }}">Назад к курсу</a>
+        {{ include('lesson/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
