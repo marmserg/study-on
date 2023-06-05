@@ -16,3 +16,9 @@ cd study-on.billing
 
 sudo chmod -R 777 .composer
 sudo chown -R mss:mss .composer
+
+
+sudo chmod -R 777 .yarn
+sudo chown -R mss:mss .yarn
+
+
